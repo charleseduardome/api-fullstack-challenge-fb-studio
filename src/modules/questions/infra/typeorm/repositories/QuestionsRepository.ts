@@ -36,6 +36,15 @@ class QuestionsRepository implements IQuestionRepository {
 
     return question;
   }
+
+  public async showAll(): Promise<Question[]> {
+    const questions = this.ormRepository.find({
+      skip: 0,
+      take: 10,
+    });
+
+    return questions;
+  }
 }
 
 export default QuestionsRepository;

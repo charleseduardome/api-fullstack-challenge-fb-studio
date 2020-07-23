@@ -20,35 +20,17 @@ interface IRequest {
   disponivel: boolean;
 }
 @injectable()
-class CreateQuestionService {
+class ListQuestionsService {
   constructor(
     @inject('QuestionsRepository')
     private questionsRepository: IQuestionsRepository,
   ) {}
 
-  public async execute({
-    materia,
-    vestibular,
-    resolucao,
-    enunciado,
-    numeroQuestao,
-    ano,
-    alternativas,
-    disponivel,
-  }: IRequest): Promise<Question> {
-    const question = await this.questionsRepository.create({
-      materia,
-      vestibular,
-      resolucao,
-      enunciado,
-      numeroQuestao,
-      ano,
-      alternativas,
-      disponivel,
-    });
+  public async execute(): Promise<Question[]> {
+    const questions = await this.questionsRepository.showAll();
 
-    return question;
+    return questions;
   }
 }
 
-export default CreateQuestionService;
+export default ListQuestionsService;

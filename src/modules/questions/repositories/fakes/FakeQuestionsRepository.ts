@@ -35,6 +35,10 @@ class QuestionsRepository implements IQuestionsRepository {
 
     return question;
   }
+
+  public async showAll(): Promise<Question[]> {
+    return this.questions;
+  }
 }
 
 export default QuestionsRepository;
