@@ -12,26 +12,8 @@ class QuestionsRepository implements IQuestionRepository {
     this.ormRepository = getMongoRepository(Question, 'default');
   }
 
-  public async create({
-    materia,
-    vestibular,
-    resolucao,
-    enunciado,
-    numeroQuestao,
-    ano,
-    alternativas,
-    disponivel,
-  }: ICreateQuestionDTO): Promise<Question> {
-    const question = this.ormRepository.create({
-      materia,
-      vestibular,
-      resolucao,
-      enunciado,
-      numeroQuestao,
-      ano,
-      alternativas,
-      disponivel,
-    });
+  public async create(dataQuestion: ICreateQuestionDTO): Promise<Question> {
+    const question = this.ormRepository.create(dataQuestion);
 
     await this.ormRepository.save(question);
 
@@ -47,18 +29,10 @@ class QuestionsRepository implements IQuestionRepository {
     return questions;
   }
 
-  public async filter({
-    materia,
-    vestibular,
-    ano,
-    disponivel,
-  }: IFilterQuestionsDTO): Promise<Question[] | undefined> {
-    const questions = await this.ormRepository.find({
-      materia,
-      vestibular,
-      ano,
-      disponivel,
-    });
+  public async filter(
+    dataQuestion: IFilterQuestionsDTO,
+  ): Promise<Question[] | undefined> {
+    const questions = await this.ormRepository.find(dataQuestion);
 
     return questions;
   }
