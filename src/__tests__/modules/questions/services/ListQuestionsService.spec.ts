@@ -8,7 +8,7 @@ let fakeQuestionsRepository: FakeQuestionsRepository;
 let createQuestion: CreateQuestionService;
 let listQuestions: ListQuestionsService;
 
-describe('CreateQuestion', () => {
+describe('ListQuestions', () => {
   beforeEach(() => {
     fakeQuestionsRepository = new FakeQuestionsRepository();
     createQuestion = new CreateQuestionService(fakeQuestionsRepository);

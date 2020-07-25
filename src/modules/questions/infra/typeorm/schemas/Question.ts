@@ -3,7 +3,7 @@ import { ObjectID, ObjectIdColumn, Entity, Column } from 'typeorm';
 @Entity('questions')
 class Question {
   @ObjectIdColumn()
-  _id: ObjectID;
+  id: ObjectID;
 
   @Column()
   materia: string;

@@ -37,6 +37,16 @@ class QuestionsRepository implements IQuestionsRepository {
     return question;
   }
 
+  public async save(question: Question): Promise<Question> {
+    const findIndex = this.questions.findIndex(
+      findQuestion => findQuestion.id === question.id,
+    );
+
+    this.questions[findIndex] = question;
+
+    return question;
+  }
+
   public async showAll(): Promise<Question[]> {
     return this.questions;
   }
@@ -55,6 +65,14 @@ class QuestionsRepository implements IQuestionsRepository {
         question.disponivel === disponivel,
     );
     return questions;
+  }
+
+  public async findById(id: string): Promise<Question | undefined> {
+    const findQuestion = this.questions.find(
+      question => String(question.id) === id,
+    );
+
+    return findQuestion;
   }
 }
 

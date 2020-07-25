@@ -8,8 +8,8 @@ const questionsController = new QuestionsController();
 const filterQuestionsController = new FilterQuestionsController();
 
 questionsRouter.get('/', questionsController.index);
-
 questionsRouter.post('/', questionsController.create);
+questionsRouter.put('/:id', questionsController.update);
 
 questionsRouter.get('/filter', filterQuestionsController.index);
 

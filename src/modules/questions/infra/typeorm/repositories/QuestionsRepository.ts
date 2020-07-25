@@ -36,6 +36,16 @@ class QuestionsRepository implements IQuestionRepository {
 
     return questions;
   }
+
+  public async findById(idQuestion: string): Promise<Question | undefined> {
+    const question = await this.ormRepository.findOne(idQuestion);
+
+    return question;
+  }
+
+  public async save(question: Question): Promise<Question> {
+    return this.ormRepository.save(question);
+  }
 }
 
 export default QuestionsRepository;
