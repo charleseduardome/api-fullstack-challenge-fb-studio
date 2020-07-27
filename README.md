@@ -8,13 +8,13 @@
 
 Esta API fornece o necessário para buscar e atualizar as questões.
 
-O usuário é capaz de visualizar editar as questões;
+O usuário é capaz de visualizar, editar as questões;
 
 O usuário é capaz de marcar se a questão está disponivel ou não.
 
 ## Desafios e problemas
 
-MongoDB possui um tipo de campo (ObjectIdColumn) especifico para gerar IDs automáticas, e métodos especificos (getMongoRepository, MongoRepository) para funcionar com o typeORM, não sabendo disto perdi tempo para enterder e corrigir.
+MongoDB possui um tipo de campo (ObjectIdColumn) especifico para gerar IDs automáticas, e métodos especificos (getMongoRepository, MongoRepository) para funcionar com o typeORM, não sabendo disto precisei de tempo para enterder e corrigir.
 
 ## Melhorias
 
