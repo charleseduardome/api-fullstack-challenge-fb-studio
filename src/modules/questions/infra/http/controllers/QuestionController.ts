@@ -35,9 +35,10 @@ export default class QuestionController {
   }
 
   public async index(request: Request, response: Response): Promise<Response> {
+    const { page = 1 } = request.query;
     const listQuestionsService = container.resolve(ListQuestionsService);
 
-    const questions = await listQuestionsService.execute();
+    const questions = await listQuestionsService.execute(Number(page));
 
     return response.json(questions);
   }

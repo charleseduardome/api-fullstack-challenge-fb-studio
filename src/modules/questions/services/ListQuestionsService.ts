@@ -10,8 +10,8 @@ class ListQuestionsService {
     private questionsRepository: IQuestionsRepository,
   ) {}
 
-  public async execute(): Promise<Question[]> {
-    const questions = await this.questionsRepository.showAll();
+  public async execute(page: number): Promise<Question[]> {
+    const questions = await this.questionsRepository.showAll(page);
 
     return questions;
   }

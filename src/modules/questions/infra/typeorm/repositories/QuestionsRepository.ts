@@ -20,9 +20,9 @@ class QuestionsRepository implements IQuestionRepository {
     return question;
   }
 
-  public async showAll(): Promise<Question[]> {
+  public async showAll(page: number): Promise<Question[]> {
     const questions = await this.ormRepository.find({
-      skip: 0,
+      skip: page - 1,
       take: 10,
     });
 

@@ -4,7 +4,7 @@ import Question from '../infra/typeorm/schemas/Question';
 
 export default interface IQuestionsRepository {
   create(data: ICreateQuestionDTO): Promise<Question>;
-  showAll(): Promise<Question[]>;
+  showAll(page: number): Promise<Question[]>;
   filter(data: IFilterQuestionsDTO): Promise<Question[] | undefined>;
   findById(id: string): Promise<Question | undefined>;
   save(question: Question): Promise<Question>;
